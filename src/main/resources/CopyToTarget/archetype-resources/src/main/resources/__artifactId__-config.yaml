@@ -1,0 +1,18 @@
+https:
+  host: "0.0.0.0"
+  port: "8082"
+  private:
+    port: "8092" #Will be used with LB
+
+api:
+  id: "" #API Instance ID for Autodiscovery
+  flow: "${artifactId}-main"    
+
+keystore:
+  password: "![LAM0s+J7Jf6Un36fQi271g==]" #Key: passkey, Algorithm: Blowfish, State: CBC ... Change as per requirement.
+  key:
+    password: "![LAM0s+J7Jf6Un36fQi271g==]" #Key: passkey, Algorithm: Blowfish, State: CBC ... Change as per requirement.
+  path: "keystore.jks"
+  alias: "mule"
+
+msg: "Welcome to the ArcheType Template Project"  

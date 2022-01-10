@@ -1,0 +1,38 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
+	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:tls="http://www.mulesoft.org/schema/mule/tls" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
+	
+	<!-- HTTPS Listener Configuration -->
+	<http:listener-config name="${artifactId}-httpListenerConfig">
+        <http:listener-connection host="${symbol_dollar}{https.host}" port="${symbol_dollar}{https.port}" tlsContext="TLS_Context" protocol="HTTPS">
+		</http:listener-connection>
+    </http:listener-config>
+    
+	<!-- TLS Configuration required as part of HTTPS Listener -->
+   	<tls:context name="TLS_Context" doc:name="TLS Context" doc:id="d5d9b2b0-df54-439b-8027-1bd54fb3796e" >
+		<tls:key-store type="jks" path="${symbol_dollar}{keystore.path}" alias="${symbol_dollar}{keystore.alias}" keyPassword="${symbol_dollar}{secure::keystore.key.password}" password="${symbol_dollar}{secure::keystore.password}" />
+	</tls:context>
+	
+	<!-- Secure the Properties depenedy is added in POM.xml -->
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="bc2a8026-1490-4a46-aade-f991674436b7" file="${artifactId}-config.yaml" key="${symbol_dollar}{encKey}" >
+		<secure-properties:encrypt algorithm="Blowfish" />
+	</secure-properties:config>
+    
+	<!-- Generated as part of the Scafolding -->
+   <apikit:config name="${artifactId}-config" api="${artifactId}.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    
+	<!-- Configuration Properties -->
+	<configuration-properties doc:name="Configuration properties" doc:id="21055445-03b5-41c9-a043-ac45d5463cf2" file="${artifactId}-config.yaml" />
+	
+</mule>

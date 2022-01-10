@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>${groupId}</groupId>
+	<artifactId>${artifactId}</artifactId>
+    <version>${version}</version>
+    <packaging>mule-application</packaging>
+	<name>${artifactId}</name>
+
+    <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<app.runtime>4.3.0</app.runtime>
+		<mule.maven.plugin.version>3.4.2</mule.maven.plugin.version>
+		<munit.version>2.3.1</munit.version>
+		<csl.version>2.0.0</csl.version> 
+		<maven.compiler.source>1.8</maven.compiler.source>
+     	<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>${mule.maven.plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+                    <!-- The following variables will be used for Deploying the the component to cloudhub -->
+					<!-- <cloudHubDeployment>
+						<uri>https://.anypoint.mulesoft.com/</uri>
+						<muleVersion>${app.runtime}</muleVersion>
+						<username>${mulesoft.username}</username>
+						<password>${mulesoft.password}</password>
+						<applicationName>${mulesoft.application.name}</applicationName>
+						<environment>${mulesoft.environment}</environment>
+						<workers>${mulesoft.workers}</workers>
+						<workerType>${mulesoft.workerType}</workerType>
+						<artifact>${project.artifactId}-${project.version}-mule-application.jar</artifact>
+						<region>us-central-1</region>
+						<objectStoreV2>true</objectStoreV2>
+						The following variables will appear in the settings tab after 
+							deploying the componnet to cloudhub Other variables can be added here with 
+							some initial values
+						<properties>
+							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
+							<anypoint.platform.analytics_base_uri>${anypoint.platform.analytics_base_uri}</anypoint.platform.analytics_base_uri>
+							<anypoint.platform.base_uri>${anypoint.platform.base_uri}</anypoint.platform.base_uri>
+							<env>${env}</env>
+ 							<encKey>${encKey}</encKey>
+						</properties>
+					</cloudHubDeployment> -->
+                </configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-http-connector</artifactId>
+            <version>1.5.19</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-sockets-connector</artifactId>
+            <version>1.2.0</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+			<groupId>com.mulesoft.modules</groupId>
+			<artifactId>mule-secure-configuration-property-module</artifactId>
+			<version>1.2.3</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-apikit-module</artifactId>
+            <version>1.3.13</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+    </dependencies>
+
+	<repositories>
+          <repository>
+            <id>anypoint-exchange-v2</id>
+            <name>Anypoint Exchange</name>
+            <url>https://maven.anypoint.mulesoft.com/api/v2/maven</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>mulesoft-releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <url>https://repository.mulesoft.org/releases/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>mulesoft-releases</id>
+            <name>mulesoft release repository</name>
+            <layout>default</layout>
+            <url>https://repository.mulesoft.org/releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    <!-- <distributionManagement>
+		<repository>
+			<id>ams.Java</id>
+			<url>https://pkgs.dev.azure.com/ams-com/Mulesoft/_packaging/ams.Java/maven/v1</url>
+		</repository>
+	</distributionManagement> -->
+
+</project>
