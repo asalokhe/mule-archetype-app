@@ -9,7 +9,7 @@ http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/m
 http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
-	<http:listener-config name="ams-template-component-httpListenerConfig">
+	<http:listener-config name="mule-archetype-app-httpListenerConfig">
         <http:listener-connection host="${https.host}" port="${https.port}" tlsContext="TLS_Context" protocol="HTTPS">
 		</http:listener-connection>
     </http:listener-config>
@@ -18,12 +18,12 @@ http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/sc
 		<tls:key-store type="jks" path="${keystore.path}" alias="${keystore.alias}" keyPassword="${secure::keystore.key.password}" password="${secure::keystore.password}" />
 	</tls:context>
 	
-	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="bc2a8026-1490-4a46-aade-f991674436b7" file="ams-template-component-config.yaml" key="${encKey}" >
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="bc2a8026-1490-4a46-aade-f991674436b7" file="mule-archetype-app-config.yaml" key="${encKey}" >
 		<secure-properties:encrypt algorithm="Blowfish" />
 	</secure-properties:config>
     
-   <apikit:config name="ams-template-component-config" api="ams-template-component.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+   <apikit:config name="mule-archetype-app-config" api="mule-archetype-app.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
     
-	<configuration-properties doc:name="Configuration properties" doc:id="21055445-03b5-41c9-a043-ac45d5463cf2" file="ams-template-component-config.yaml" />
+	<configuration-properties doc:name="Configuration properties" doc:id="21055445-03b5-41c9-a043-ac45d5463cf2" file="mule-archetype-app-config.yaml" />
 	
 </mule>

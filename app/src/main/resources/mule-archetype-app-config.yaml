@@ -6,7 +6,7 @@ https:
 
 api:
   id: ""
-  flow: "ams-template-component-main"
+  flow: "mule-archetype-app-main"
 
 keystore:
   password: "![LAM0s+J7Jf6Un36fQi271g==]" #Key: passkey, Algorithm: Blowfish, State: CBC

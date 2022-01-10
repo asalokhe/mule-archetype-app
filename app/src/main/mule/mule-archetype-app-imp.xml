@@ -6,12 +6,11 @@
 	xsi:schemaLocation="
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
 
-	<flow name="get:\users:ams-template-component-config">
+	<flow name="get:\users:mule-archetype-app-config">
         <ee:transform doc:name="Transform Message" doc:id="45c442e2-fefe-4dca-94e8-bbee04ba122f" >
 			<ee:message >
 				<ee:set-payload resource="dwl/transform-response.dwl" />
 			</ee:message>
 		</ee:transform>
     </flow>
-    
 </mule>

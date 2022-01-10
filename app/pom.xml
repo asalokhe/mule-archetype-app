@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>ams-template-component</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<artifactId>mule-archetype-app</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
-	<name>ams-template-component</name>
+	<name>mule-archetype-app</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,6 +32,15 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+	        <plugins>
+	            <plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-compiler-plugin</artifactId>
+	                <version>3.8.1</version>
+	            </plugin>    
+	        </plugins>
+    </pluginManagement>
 	</build>
 
 	<dependencies>
@@ -86,5 +95,4 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
 </project>
