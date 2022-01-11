@@ -1,9 +1,10 @@
 # Mule-Archetype-App 
 ### (App Folder)
-An archetype project which could be installed for further creation of a mule project.
+An archetype project which could be installed to package registry or local maven repository for creation of a mule template project.
 
 ## Generate Template
--	Create project template based on the current project: The below command will create a archetype template based on your current project in the location: **target\generated-sources\archetype\src\main\resources\archetype-resources**
+-	Create project template based on the current project: The below command will create a archetype template based on your current project in the location:
+    **target\generated-sources\archetype\src\main\resources\archetype-resources**
 	
 ```sh
     mvn archetype:create-from-project
